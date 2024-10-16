@@ -12,7 +12,7 @@ Replace the lines specified in _italics_ with your answers and save as a text fi
 Complete the interactive tutorial.
 
 _Did you hit any points of frustration, and if so, how could we improve the material to avoid that frustration?_
-
+It is tedious and time consuming, but doable. 
 
 ## Problem 1
 
@@ -53,7 +53,7 @@ slides<br>
 vader.txt<br>
 
 _Paste your SCRIPT here (not the output)_
-
+./hw2_script.sh
 
 ## Problem 2
 
@@ -76,5 +76,5 @@ tfcb_2023/homeworks/homework02/list.txt
 You can make the contents of those files whatever you want (hint: slide 9... )
 
 _Paste your SCRIPT here (not the output)_
-
+./hw2_question02.sh
 

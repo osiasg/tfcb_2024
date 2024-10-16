@@ -1,5 +1,5 @@
-My username is osiasg
-My home directory is /Users/osiasg
+My username is root
+My home directory is /root
 The contents of the lectures/lecture04/ directory are
 01-first-steps.md
 02-directories
