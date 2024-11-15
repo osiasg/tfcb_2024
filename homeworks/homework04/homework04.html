@@ -14635,7 +14635,7 @@ This homework can be completed almost entirely by re-using code from lecture 9. 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[179]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[210]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import regular expressions module</span>
@@ -14666,31 +14666,12 @@ This homework can be completed almost entirely by re-using code from lecture 9. 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[180]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[211]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Import Bio.Seq package </span>
-<span class="kn">import</span> <span class="nn">Bio.SeqIO</span>
-<span class="kn">import</span> <span class="nn">Bio.Seq</span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[181]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Open R1.fastq file </span>
-<span class="n">reads</span> <span class="o">=</span> <span class="n">Bio</span><span class="o">.</span><span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;barcodes_R1.fastq&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;fastq&#39;</span><span class="p">)</span>
-<span class="c1"># make list of seq reads</span>
-<span class="n">seqreads</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reads</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">Bio.Seq</span> <span class="kn">import</span> <span class="n">Seq</span>
+<span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
 </pre></div>
 
      </div>
@@ -14703,152 +14684,73 @@ This homework can be completed almost entirely by re-using code from lecture 9. 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[182]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[220]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># make a list of just the sequences</span>
-<span class="n">seqreads_Seq</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">seqrecord</span> <span class="ow">in</span> <span class="n">seqreads</span><span class="p">:</span>
-    <span class="n">sequence</span> <span class="o">=</span> <span class="n">seqrecord</span><span class="o">.</span><span class="n">seq</span> <span class="c1"># isolate the sequence from the seqrecord</span>
-    <span class="n">seqreads_Seq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="c1"># add string sequence to list</span>
-    
-<span class="c1">#Reverse Complement</span>
-<span class="n">seqreads_Seq_rev</span> <span class="o">=</span> <span class="n">sequence</span>
-<span class="n">seqreads_Seq_rev</span><span class="o">.</span><span class="n">reverse_complement</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">seqreads_Seq_rev</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># empty dictionaries</span>
+<span class="n">HA_barcodes</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">NA_barcodes</span> <span class="o">=</span> <span class="p">{}</span>
 
 
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CGTAGGATTGAATTAGGCGGCCGCCTATGGTGCACTATTATTTATCTATCGTGAAAGGGAGTTCTGCTCCATCAGGCCAAGATCGGAAGAGCACACGTCTGAACTCCAGTCACATGTCAGAATCTCGTATGCCGTCTTCTGCTTGAAAAAAAAAAAAAACACAAAAAACATAATTCTGCCACATGTAGATGCATGGCAAAGATCAATACTATGCAAAATTTACACATATATCTGCAGACAAATAATATAA
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[183]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">reverse_complement</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">unk_partner</span><span class="o">=</span><span class="s1">&#39;N&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Returns the reverse complement of a nucleic acid sequence</span>
-<span class="sd">    </span>
-<span class="sd">    Uses unk_partner as the partner of unrecognized letters</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">base_partner</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span><span class="s1">&#39;C&#39;</span><span class="p">}</span>
-    <span class="n">rseq</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-    <span class="c1"># iterate through all bases in the sequence</span>
-    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
-        <span class="c1"># check if the base is in the dictionary</span>
-        <span class="k">if</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">base_partner</span><span class="p">:</span>
-            <span class="c1"># look up the complementary base in the dictionary</span>
-            <span class="n">pair</span> <span class="o">=</span> <span class="n">base_partner</span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
-            <span class="c1"># add the complentary base to the beginning of the string (reverse comp)</span>
-            <span class="n">rseq</span> <span class="o">=</span> <span class="n">pair</span> <span class="o">+</span> <span class="n">rseq</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">rseq</span> <span class="o">=</span> <span class="n">unk_partner</span> <span class="o">+</span> <span class="n">rseq</span>
-    <span class="k">return</span> <span class="n">rseq</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[184]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Define known sequences </span>
-<span class="n">HA_END</span> <span class="o">=</span> <span class="s2">&quot;CCGGATTTGCATATAATGATGCACCAT&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-<span class="n">NA_END</span> <span class="o">=</span> <span class="s2">&quot;CACGATAGATAAATAATAGTGCACCAT&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-
-<span class="n">reverse_complement</span><span class="p">(</span><span class="n">HA_END</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[184]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;ATGGTGCATCATTATATGCAAATCCGG&#39;</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[185]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Define known sequences </span>
-<span class="n">HA_END</span> <span class="o">=</span> <span class="s2">&quot;CCGGATTTGCATATAATGATGCACCAT&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-<span class="n">NA_END</span> <span class="o">=</span> <span class="s2">&quot;CACGATAGATAAATAATAGTGCACCAT&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">HA_END</span><span class="p">)</span>
+<span class="c1">#Define known sequences </span>
+<span class="n">HA_END</span> <span class="o">=</span> <span class="s2">&quot;CCGGATTTGCATATAATGATGCACCAT&quot;</span>
+<span class="n">NA_END</span> <span class="o">=</span> <span class="s2">&quot;CACGATAGATAAATAATAGTGCACCAT&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">HA_END</span><span class="p">))</span>
 
 <span class="c1">#Constant sequence </span>
-<span class="n">constant_region</span> <span class="o">=</span> <span class="s2">&quot;AGGCGGCCGC&quot;</span>
+<span class="n">constant_region</span> <span class="o">=</span> <span class="s2">&quot;GCGGCCGCCT&quot;</span>
 
-<span class="c1">#Lists </span>
-<span class="n">seqs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CTAGCatcgatGATCA&#39;</span><span class="p">,</span>  <span class="c1"># has barcode ATCGAT</span>
-        <span class="s1">&#39;CCAGCatagcaGATCA&#39;</span><span class="p">,</span>  <span class="c1"># does not have expected 5&#39; sequence</span>
-        <span class="s1">&#39;CTAGCtacagGATCA&#39;</span><span class="p">,</span>   <span class="c1"># barcode too short</span>
-        <span class="s1">&#39;CTAGCgaccatGATCA&#39;</span><span class="p">,</span>  <span class="c1"># has barcode GACCAT</span>
-        <span class="s1">&#39;CTAGCatcgatGATCA&#39;</span><span class="p">,</span>  <span class="c1"># has barcode ATCGAT</span>
-        <span class="s1">&#39;CTAGCatcgatGGTCA&#39;</span><span class="p">,</span>  <span class="c1"># does not have expected 3&#39; sequence</span>
-        <span class="p">]</span>
+<span class="c1"># Get reverse complements of HA and NA end sequences to match 3&#39; end</span>
+<span class="n">HA_reverse_complement</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="n">HA_END</span><span class="p">)</span><span class="o">.</span><span class="n">reverse_complement</span><span class="p">())</span>
+<span class="n">NA_reverse_complement</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="n">NA_END</span><span class="p">)</span><span class="o">.</span><span class="n">reverse_complement</span><span class="p">())</span>
+
+
+<span class="c1"># Number of reads that map to HA &amp; NA</span>
+<span class="n">HA_COUNT</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">NA_COUNT</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Barcode search </span>
+<span class="n">ha_barcode</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?P&lt;barcode&gt;[ATCG]</span><span class="si">{16}</span><span class="s1">)&#39;</span> <span class="o">+</span> <span class="n">constant_region</span> <span class="o">+</span> <span class="n">HA_reverse_complement</span><span class="p">)</span>
+<span class="n">na_barcode</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?P&lt;barcode&gt;[ATCG]</span><span class="si">{16}</span><span class="s1">)&#39;</span> <span class="o">+</span> <span class="n">constant_region</span> <span class="o">+</span> <span class="n">NA_reverse_complement</span><span class="p">)</span>
+
+
+<span class="c1"># read in file</span>
+<span class="n">reads</span> <span class="o">=</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;barcodes_R1.fastq&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;fastq&#39;</span><span class="p">)</span>
+<span class="c1"># print(len(reads))</span>
+
+<span class="c1"># convert each read to string sequence</span>
+<span class="n">seqs</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">read</span><span class="o">.</span><span class="n">seq</span><span class="p">)</span> <span class="k">for</span> <span class="n">read</span> <span class="ow">in</span> <span class="n">reads</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seqs</span><span class="p">))</span>
+
+
+<span class="k">for</span> <span class="n">seq</span> <span class="ow">in</span> <span class="n">seqs</span><span class="p">:</span>
+        <span class="c1"># HA Match</span>
+        <span class="n">ha_match</span> <span class="o">=</span> <span class="n">ha_barcode</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> 
+        <span class="k">if</span> <span class="n">ha_match</span><span class="p">:</span>
+                <span class="n">barcode</span> <span class="o">=</span> <span class="n">ha_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;barcode&quot;</span><span class="p">)</span>
+                <span class="n">HA_barcodes</span><span class="p">[</span><span class="n">barcode</span><span class="p">]</span> <span class="o">=</span> <span class="n">HA_barcodes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">barcode</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="k">continue</span>
+        
+        <span class="c1"># NA matched if HA was NOT matched</span>
+        <span class="n">na_match</span> <span class="o">=</span> <span class="n">na_barcode</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">na_match</span><span class="p">:</span>
+                <span class="n">barcode</span> <span class="o">=</span> <span class="n">na_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;barcode&quot;</span><span class="p">)</span>
+                <span class="n">NA_barcodes</span><span class="p">[</span><span class="n">barcode</span><span class="p">]</span> <span class="o">=</span> <span class="n">NA_barcodes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">barcode</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="k">continue</span>
+        
+        <span class="c1"># If no match for NA or HA </span>
+        <span class="k">if</span> <span class="n">HA_reverse_complement</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+                <span class="n">HA_COUNT</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">NA_reverse_complement</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+                <span class="n">NA_COUNT</span> <span class="o">+=</span> <span class="mi">1</span>
+                
+<span class="c1"># Total number of reads to HA and NA</span>
+<span class="n">total_HA_barcodes</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">HA_barcodes</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">total_NA_barcodes</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">NA_barcodes</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+<span class="c1"># Print</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total HA barcodes&quot;</span><span class="p">,</span> <span class="n">total_HA_barcodes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total NA barcodes&quot;</span><span class="p">,</span> <span class="n">total_NA_barcodes</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14871,237 +14773,9 @@ This homework can be completed almost entirely by re-using code from lecture 9. 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>27
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[186]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Number of reads that map to HA &amp; NA</span>
-<span class="n">HA_COUNT</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">NA_COUNT</span> <span class="o">=</span> <span class="mi">0</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[187]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># isolate just the first sequence for learning purposes</span>
-<span class="n">seq</span> <span class="o">=</span> <span class="n">seqreads_Seq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="c1"># get reverse complement of read</span>
-<span class="n">rev_comp</span> <span class="o">=</span> <span class="n">seq</span><span class="o">.</span><span class="n">reverse_complement</span><span class="p">()</span>
-
-<span class="c1"># define constant sequence</span>
-<span class="n">constant_region</span> <span class="o">=</span> <span class="s2">&quot;AGGCGGCCGC&quot;</span>
-<span class="c1"># define constant sequence in reverse direction</span>
-<span class="n">constant_region_reverse</span> <span class="o">=</span> <span class="s2">&quot;GCGGCCGCCT&quot;</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="n">constant_region</span> <span class="ow">in</span> <span class="n">rev_comp</span><span class="p">):</span> 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;constant region&quot;</span><span class="p">)</span>
-
-<span class="c1"># define the sequence order to search for</span>
-<span class="n">HA_pattern</span> <span class="o">=</span> <span class="n">HA_END</span> <span class="o">+</span> <span class="n">constant_region</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">HA_pattern</span><span class="p">)</span>
-<span class="n">NA_pattern</span> <span class="o">=</span> <span class="n">NA_END</span> <span class="o">+</span> <span class="n">constant_region</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">NA_pattern</span><span class="p">)</span>
-
-<span class="c1"># define correct read length (barcode length + constant length + HA/NA end)</span>
-<span class="n">read_length</span> <span class="o">=</span> <span class="mi">16</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">constant_region</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">HA_END</span><span class="p">)</span>
-
-<span class="c1"># Number of reads that map to HA &amp; NA</span>
-<span class="n">HA_COUNT</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">NA_COUNT</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="c1"># check if pattern is in read</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">HA_pattern</span> <span class="ow">in</span> <span class="n">rev_comp</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Maps to HA&quot;</span><span class="p">)</span>
-    <span class="n">HA_COUNT</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">HA_COUNT</span><span class="p">)</span>
-    
-<span class="k">if</span> <span class="p">(</span><span class="n">NA_pattern</span> <span class="ow">in</span> <span class="n">rev_comp</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Maps to NA&quot;</span><span class="p">)</span>
-    <span class="n">NA_COUNT</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">NA_COUNT</span><span class="p">)</span>
-    
-
-<span class="c1"># if one of the NA or HA + constant sequence is in the read, the read maps to that gene</span>
-<span class="c1"># get barcode:</span>
-<span class="c1"># find the position the HA_pattern is at</span>
-<span class="c1"># get the 16 bases after the pattern</span>
-<span class="c1"># use the position of the HA_pattern to know where to get the 16 from</span>
-<span class="c1"># that&#39;s the barcode</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>constant region
-CCGGATTTGCATATAATGATGCACCATAGGCGGCCGC
-CACGATAGATAAATAATAGTGCACCATAGGCGGCCGC
-Maps to NA
-1
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[188]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## NA sequences that map to fastq</span>
-<span class="c1">#122</span>
-
-<span class="c1">##HA sequence that map to fastq</span>
-<span class="c1">#5,409</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[198]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">##applying to the whole fastq file</span>
-<span class="c1"># Define known sequences</span>
-<span class="n">HA_END</span> <span class="o">=</span> <span class="s2">&quot;CCGGATTTGCATATAATGATGCACCAT&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-<span class="n">NA_END</span> <span class="o">=</span> <span class="s2">&quot;CACGATAGATAAATAATAGTGCACCAT&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-<span class="n">constant_region</span> <span class="o">=</span> <span class="s2">&quot;AGGCGGCCGC&quot;</span>
-<span class="n">constant_region_reverse</span> <span class="o">=</span> <span class="s2">&quot;GCGGCCGCCT&quot;</span>  <span class="c1"># constant region in reverse complement form</span>
-
-<span class="c1"># Initialize counters and barcode dictionaries first find HA and NA counts</span>
-<span class="n">HA_COUNT</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">NA_COUNT</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="c1">##HA_invalid_count = 0</span>
-<span class="c1">##NA_invalid_count = 0</span>
-<span class="c1">##HA_barcodes = {}</span>
-<span class="c1">##NA_barcodes = {}</span>
-
-
-<span class="c1"># get reverse complement of read</span>
-<span class="c1">#Reverse Complement</span>
-<span class="n">seqreads_Seq_rev</span> <span class="o">=</span> <span class="n">sequence</span>
-<span class="n">seqreads_Seq_rev</span><span class="o">.</span><span class="n">reverse_complement</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">seqreads_Seq_rev</span><span class="p">)</span>
-
-<span class="c1"># define constant sequence</span>
-<span class="n">constant_region</span> <span class="o">=</span> <span class="s2">&quot;AGGCGGCCGC&quot;</span>
-<span class="c1"># define constant sequence in reverse direction</span>
-<span class="n">constant_region_reverse</span> <span class="o">=</span> <span class="s2">&quot;GCGGCCGCCT&quot;</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="n">constant_region</span> <span class="ow">in</span> <span class="n">seqreads_Seq_rev</span><span class="p">):</span> 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;constant region&quot;</span><span class="p">)</span>
-
-<span class="c1">##def identify_barcode(seqreads_Seq_rev, upstream_sequence, barcode_length=16): I can&#39;t get this to work </span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Identifies a barcode of specified length directly upstream of a known sequence.</span>
-<span class="sd">    Args:</span>
-<span class="sd">        sequence (str): The sequence in which to search.</span>
-<span class="sd">        upstream_sequence (str): The known upstream sequence to identify the barcode.</span>
-<span class="sd">        barcode_length (int): The length of the barcode to identify.</span>
-<span class="sd">    Returns:</span>
-<span class="sd">        str or None: Returns the barcode if found, otherwise None.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1">##sequence_seq = str(seqreads_Seq_rev)</span>
-    <span class="c1">##pattern = rf&quot;([ACGT]{{{barcode_length}}})&quot; + upstream_sequence</span>
-    <span class="c1">##match = re.search(pattern, sequence_seq)</span>
-    <span class="c1">##return match.group(1) if match else None</span>
-
-<span class="c1"># Check for HA or NA in the reverse complement</span>
-<span class="k">if</span> <span class="n">HA_END</span> <span class="ow">and</span> <span class="n">constant_region</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">seqreads_Seq_rev</span><span class="p">):</span>
-    <span class="n">HA_COUNT</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="n">barcode</span> <span class="o">=</span> <span class="n">identify_barcode</span><span class="p">(</span><span class="n">seqreads_Seq_rev</span><span class="p">,</span> <span class="n">constant_region</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">barcode</span><span class="p">:</span>
-        <span class="n">HA_barcodes</span><span class="p">[</span><span class="n">barcode</span><span class="p">]</span> <span class="o">=</span> <span class="n">HA_barcodes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">barcode</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">HA_invalid_count</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># Increment invalid count if no barcode</span>
-
-<span class="k">if</span> <span class="n">NA_END</span> <span class="ow">and</span> <span class="n">constant_region</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
-    <span class="n">NA_COUNT</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="n">barcode</span> <span class="o">=</span> <span class="n">identify_barcode</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">constant_region</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">barcode</span><span class="p">:</span>
-        <span class="n">NA_barcodes</span><span class="p">[</span><span class="n">barcode</span><span class="p">]</span> <span class="o">=</span> <span class="n">NA_barcodes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">barcode</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">NA_invalid_count</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># Increment invalid count if no barcode</span>
-
-<span class="c1"># Print final results</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total HA reads: </span><span class="si">{</span><span class="n">HA_COUNT</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total NA reads: </span><span class="si">{</span><span class="n">NA_COUNT</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CGTAGGATTGAATTAGGCGGCCGCCTATGGTGCACTATTATTTATCTATCGTGAAAGGGAGTTCTGCTCCATCAGGCCAAGATCGGAAGAGCACACGTCTGAACTCCAGTCACATGTCAGAATCTCGTATGCCGTCTTCTGCTTGAAAAAAAAAAAAAACACAAAAAACATAATTCTGCCACATGTAGATGCATGGCAAAGATCAATACTATGCAAAATTTACACATATATCTGCAGACAAATAATATAA
-constant region
-Total HA reads: 1
-Total NA reads: 1
+10000
+Total HA barcodes 5249
+Total NA barcodes 3909
 </pre>
 </div>
 </div>
@@ -15124,20 +14798,45 @@ Total NA reads: 1
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[190]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[221]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># your code here...</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total HA sequences with invalid barcode: </span><span class="si">{</span><span class="n">HA_COUNT</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total NA sequences with invalid barcode: </span><span class="si">{</span><span class="n">NA_COUNT</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Total HA sequences with invalid barcode: 160
+Total NA sequences with invalid barcode: 213
+</pre>
+</div>
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15156,20 +14855,60 @@ Total NA reads: 1
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[191]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[228]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># your code here...</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#common barcode </span>
+<span class="c1">## HA barcode</span>
+<span class="k">if</span> <span class="n">HA_barcodes</span><span class="p">:</span>
+    <span class="n">max_HA_barcode</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">HA_barcodes</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">HA_barcodes</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
+    <span class="n">max_HA_count</span> <span class="o">=</span> <span class="n">HA_barcodes</span><span class="p">[</span><span class="n">max_HA_barcodes</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Most common HA barcode: </span><span class="si">{</span><span class="n">max_HA_barcode</span><span class="si">}</span><span class="s1"> with </span><span class="si">{</span><span class="n">max_HA_count</span><span class="si">}</span><span class="s1"> counts&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;no HA barcode found.&quot;</span><span class="p">)</span>
+
+<span class="c1">## NA barcode</span>
+<span class="k">if</span> <span class="n">NA_barcodes</span><span class="p">:</span>
+    <span class="n">max_NA_barcode</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">NA_barcodes</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">NA_barcodes</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
+    <span class="n">max_NA_count</span> <span class="o">=</span> <span class="n">NA_barcodes</span><span class="p">[</span><span class="n">max_NA_barcode</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Most common NA barcode: </span><span class="si">{</span><span class="n">max_NA_barcode</span><span class="si">}</span><span class="s1"> with </span><span class="si">{</span><span class="n">max_NA_count</span><span class="si">}</span><span class="s1"> counts&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;no NA barcode found.&quot;</span><span class="p">)</span> 
+    
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Most common HA barcode: TTAATGTCGGGTCGGG with 155 counts
+Most common NA barcode: CCCGGGGAGAACTGGT with 152 counts
+</pre>
+</div>
+</div>
+
+</div>
+
 </div>
 
 </div>
